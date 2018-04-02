@@ -1,0 +1,94 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+</head>
+<body>
+	<div class="container" id="contenedor">
+	<header>
+                <div class="navigation-bar">
+                    <div id="navigation-container">
+                        <a href="/"><img src="/imagenes/LOGO_URJC_COLOR.png" height="61" width="200" alt="CycleWeb" href="cycleweb.es" class="header-img"></a>
+                            <ul>
+                                <li><a href="/">Inicio</a></li>
+                                <li><a href="/editoriales">Editoriales</a></li>
+                                <li><a href="/">Ayuda</a></li>
+                            </ul>
+                    </div>
+                </div>
+                <hr/>
+        </header>
+		<h2 align="center">Nuevo libro</h2>
+	
+		<form action="/insertar" method="post">
+			<table class="table datatable">
+				<tr>
+				<td>Editorial:</td>
+					<td><select name="cif"> 
+						<option th:if="editorial.id != null" th:each="editorial : ${editoriales}"
+							th:value="${editorial.cif}" th:text="${editorial.cif}"></option>
+					</select> 
+					<a href="/nuevaEditorial.html">Registrar nueva editorial</a>
+					</td>
+				</tr>
+		
+		
+				<tr>
+					<td>Autor:</td>
+					<td><input type='text' name='autor' /></td> 
+				</tr>
+				
+				<tr>
+					<td>Titulo:</td>
+					<td><input type='text' name='titulo' /></td> 
+				</tr>
+				
+				<tr>
+					<td>Año publicacion:</td> 
+					<td><input type='number' name='ano_publicacion' min="1" max="2019"/></td> 
+				</tr>
+				
+				<tr>
+					<td>Páginas:</td> 
+					<td><input type='number' name='paginas' min="1"/></td>
+				</tr>
+				
+				<tr>
+					<td>Isbn:</td>
+					<td><input type='text' name='isbn' /></td> 
+				</tr>
+				
+				<tr>
+					<td>PVP:</td>
+					<td><input type='number' step='0.01' name='pvp' /></td> 
+				</tr>
+				
+				<tr>
+					<td>Categoria:</td>
+					<td><select name="categoria"> 
+						<option th:value="Arte" th:text="Arte"></option>
+						<option th:value="Ciencias" th:text="Ciencias"></option>
+						<option th:value="Cocina" th:text="Cocina"></option>
+						<option th:value="Deportes" th:text="Deportes"></option>
+						<option th:value="Economia" th:text="Economia"></option>
+						<option th:value="Historia" th:text="Historia"></option>
+						<option th:value="Idiomas" th:text="Idiomas"></option>
+						<option th:value="Infantiles" th:text="Infantiles"></option>
+						<option th:value="Medicina" th:text="Medicina"></option>
+						<option th:value="Música" th:text="Música"></option>
+						<option th:value="Novela" th:text="Novela"></option>
+						<option th:value="Romantica" th:text="Romantica"></option>
+						<option th:value="Salud" th:text="Salud"></option>
+					</select> 
+					</td>
+				</tr>
+	
+			</table>	
+	
+			<input type='submit' value='Enviar' />
+		</form>
+	</div>
+</body>
+</html>
