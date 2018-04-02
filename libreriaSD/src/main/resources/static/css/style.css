@@ -9,6 +9,39 @@ div#contenedor.container{
     overflow: hidden;
 }
 
+table.table-filter{
+	width: 100%;
+}
+td.filter-cell {
+	width: 60%;
+}
+input.aplicar-button {
+	margin-top:3.25%;
+}
+td.new-cell {
+	text-align: right;
+	padding-top: 4%;
+	width: 15%;
+	}
+table.table-mostrar-libro {
+	margin-left:15%; 
+    margin-right:15%;
+	width: 70%;
+	text-align: center;  
+}
+a.new-editorial {
+	text-align: right;
+}
+td.new-editorial{
+	padding-bottom:3%;
+}
+form-control{
+	width: 25%;
+}
+h2.header {
+	margin-bottom: 2%;
+	text-align: center;
+}
 img.header-img{
     float: left;
     padding: 10px 10px 10px 85px;
