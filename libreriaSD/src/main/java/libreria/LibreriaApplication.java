@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Tablon3ControladoresH2MemConPersonaApplication {
+public class LibreriaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Tablon3ControladoresH2MemConPersonaApplication.class, args);
+		SpringApplication.run(LibreriaApplication.class, args);
 	}
 }
