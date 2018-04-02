@@ -20,54 +20,59 @@
                 </div>
                 <hr/>
         </header>
-		<h2 align="center">Nuevo libro</h2>
+		<h2 class="header">Nuevo libro</h2>
 	
 		<form action="/insertar" method="post">
-			<table class="table datatable">
-				<tr>
-				<td>Editorial:</td>
-					<td><select name="cif"> 
+		    <div class="form-group row">
+			    <label class="col-sm-2">Editorial</label>
+			    <div class="col-sm-3">
+				    <select name="cif" class="form-control"> 
 						<option th:if="editorial.id != null" th:each="editorial : ${editoriales}"
-							th:value="${editorial.cif}" th:text="${editorial.cif}"></option>
+						th:value="${editorial.cif}" th:text="${editorial.cif}"></option>
 					</select> 
-					<a href="/nuevaEditorial.html">Registrar nueva editorial</a>
-					</td>
-				</tr>
-		
-		
-				<tr>
-					<td>Autor:</td>
-					<td><input type='text' name='autor' /></td> 
-				</tr>
-				
-				<tr>
-					<td>Titulo:</td>
-					<td><input type='text' name='titulo' /></td> 
-				</tr>
-				
-				<tr>
-					<td>Año publicacion:</td> 
-					<td><input type='number' name='ano_publicacion' min="1" max="2019"/></td> 
-				</tr>
-				
-				<tr>
-					<td>Páginas:</td> 
-					<td><input type='number' name='paginas' min="1"/></td>
-				</tr>
-				
-				<tr>
-					<td>Isbn:</td>
-					<td><input type='text' name='isbn' /></td> 
-				</tr>
-				
-				<tr>
-					<td>PVP:</td>
-					<td><input type='number' step='0.01' name='pvp' /></td> 
-				</tr>
-				
-				<tr>
-					<td>Categoria:</td>
-					<td><select name="categoria"> 
+			    </div>
+			    <a href="/nuevaEditorial.html" class="btn btn-primary ">Registrar nueva editorial</a>
+		    </div>
+		    <div class="form-group row">
+			    <label class="col-sm-2">Autor</label>
+			    <div class="col-sm-10">
+					<input type='text' name='autor' class="form-control" />
+			   	</div>
+		    </div>
+		    <div class="form-group row">
+			    <label class="col-sm-2">Titulo</label>
+			    <div class="col-sm-10">
+					<input type='text' name='titulo' class="form-control" />
+			   	</div>
+		    </div>
+		    <div class="form-group row">
+			    <label class="col-sm-2">Año publicacion</label>
+			    <div class="col-sm-10">
+					<input type='number' value='2018'  min="1" max="2019" name='ano_publicacion' class="form-control" />
+			   	</div>
+		    </div>
+		    <div class="form-group row">
+			    <label class="col-sm-2">Páginas</label>
+			    <div class="col-sm-10">
+					<input type='number' min="1" name='paginas' class="form-control" />
+			   	</div>
+		    </div>
+		    <div class="form-group row">
+			    <label class="col-sm-2">Isbn</label>
+			    <div class="col-sm-10">
+					<input type='text' name='isbn' class="form-control" />
+			   	</div>
+		    </div>
+		    <div class="form-group row">
+			    <label class="col-sm-2">PVP</label>
+			    <div class="col-sm-10">
+					<input type='number' step='0.01' name='pvp' class="form-control" />
+			   	</div>
+		    </div>
+		    <div class="form-group row">
+			    <label class="col-sm-2">Categoria</label>
+			    <div class="col-sm-3">
+				    <select name="categoria" class="form-control"> 
 						<option th:value="Arte" th:text="Arte"></option>
 						<option th:value="Ciencias" th:text="Ciencias"></option>
 						<option th:value="Cocina" th:text="Cocina"></option>
@@ -82,13 +87,11 @@
 						<option th:value="Romantica" th:text="Romantica"></option>
 						<option th:value="Salud" th:text="Salud"></option>
 					</select> 
-					</td>
-				</tr>
-	
-			</table>	
-	
-			<input type='submit' value='Enviar' />
-		</form>
+			    </div>
+		    </div>
+		    <a href="/" class="btn btn-primary">Volver</a>
+			<input type='submit' value='Enviar' class="btn btn-success" />
+  		</form>
 	</div>
 </body>
 </html>
