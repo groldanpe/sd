@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+</head>
+<body>
+	<div class="container" id="contenedor">
+	<header>
+        <div class="navigation-bar">
+            <div id="navigation-container">
+                <a href="/"><img src="/imagenes/LOGO_URJC_COLOR.png" height="61" width="200" alt="CycleWeb" href="cycleweb.es" class="header-img"></a>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/editoriales">Editoriales</a></li>
+                        <li><a href="/">Ayuda</a></li>
+                    </ul>
+            </div>
+        </div>
+        <hr/>
+    </header>
+		<h2 class="header">Mostrar Libro</h2>
+		<th:block th:each="libro : ${libros}">
+			<table class=" table table-mostrar table-bordered ">
+				<tr>
+					<td>Editorial</td>
+					<td th:text="${libro.editorial.nombre}"></td>
+				</tr>
+				<tr>
+					<td>Titulo</td>
+					<td th:text="${libro.titulo}"></td>
+				</tr>
+				<tr>
+					<td>Paginas</td>
+					<td th:text="${libro.paginas}"></td>
+				</tr>
+				<tr>
+					<td>Autor</td>
+					<td th:text="${libro.autor}"></td>
+				</tr>
+				<tr>
+					<td>ISBN</td>
+					<td th:text="${libro.isbn}"></td>
+				</tr>
+				<tr>
+					<td>PVP</td>
+					<td th:text="${libro.pvp}"></td>
+				</tr>
+				<tr>
+					<td>Categoria</td>
+					<td th:text="${libro.categoria}"></td>
+				</tr>			
+			</table>
+			<div class="text-center">
+				<a href="/" class="btn btn-primary">Volver</a>
+				<a th:href="@{/modificarLibro(isbn=${libro.isbn})}" th:text="Modificar" class="btn btn-success"></a>
+			</div>
+		</th:block>
+	</div>
+</body>
+</html>

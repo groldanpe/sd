@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+</head>
+<body>
+	<div class="container" id="contenedor">
+	<header>
+        <div class="navigation-bar">
+            <div id="navigation-container">
+                <a href="/"><img src="/imagenes/LOGO_URJC_COLOR.png" height="61" width="200" alt="CycleWeb" href="cycleweb.es" class="header-img"></a>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/editoriales">Editoriales</a></li>
+                        <li><a href="/">Ayuda</a></li>
+                    </ul>
+            </div>
+        </div>
+        <hr/>
+    </header>
+		<h2 class="header">Mostrar Editorial</h2>
+		<th:block th:each="editorial : ${editoriales}">
+			<table class=" table table-mostrar table-bordered ">
+				<tr>
+					<td>Nombre</td>
+					<td th:text="${editorial.nombre}"></td>
+				</tr>
+				<tr>
+					<td>Telefono</td>
+					<td th:text="${editorial.telefono}"></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td th:text="${editorial.email}"></td>
+				</tr>
+				<tr>
+					<td>Direccion</td>
+					<td th:text="${editorial.direccion}"></td>
+				</tr>
+			</table>
+			<div class="text-center">
+				<a href="/" class="btn btn-primary">Volver</a>
+				<a th:href="@{/modificarEditorial(cif=${editorial.cif})}" th:text="Modificar" class="btn btn-success"></a>
+			</div>
+		</th:block>
+	</div>
+</body>
+</html>
