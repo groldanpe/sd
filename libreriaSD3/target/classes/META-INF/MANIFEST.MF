@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: libreriaSD
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: guillermo
+Built-By: S
 Implementation-Vendor-Id: es.sd
-Build-Jdk: 1.8.0_161
+Build-Jdk: 1.8.0_131
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/libreriaSD
 Created-By: Maven Integration for Eclipse
