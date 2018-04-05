@@ -26,7 +26,7 @@
 			    <div class="col-sm-3">
 				    <select name="cif" class="form-control"> 
 						<option th:if="editorial.id != null" th:each="editorial : ${editoriales}"
-						th:value="${editorial.cif}" th:text="${editorial.cif}"></option>
+						th:value="${editorial.cif}" th:text="${editorial.nombre}"></option>
 					</select> 
 			    </div>
 			    <a href="/nuevaEditorial" class="btn btn-primary">Registrar nueva editorial</a>

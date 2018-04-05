@@ -107,6 +107,7 @@ public class LibrosController {
 		Libros lib = repositorioLibros.findByisbn(isbn);
 		
 		model.addAttribute("libros", lib);
+		model.addAttribute("editoriales", repositorioEditorial.findAll());
 		
 		return("modificarLibro");
 	}

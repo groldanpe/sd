@@ -52,8 +52,8 @@
 			    <label class="col-sm-2">Editorial</label>
 			    <div class="col-sm-3">
 				    <select name="cif" class="form-control">
-						<option th:if="libro.id != null" th:each="libro : ${libros}"
-							th:value="${libro.editorial.cif}" th:text="${libro.editorial.nombre}"></option>
+						<option th:if="editorial.id != null" th:each="editorial : ${editoriales}"
+							th:value="${editorial.cif}" th:text="${editorial.nombre}"></option>
 					</select>
 			    </div>
 			</div>
