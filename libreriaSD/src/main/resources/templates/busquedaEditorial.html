@@ -28,9 +28,9 @@
 						<div class="row">
 			            	<div class="form-group col-xs-3">
 								<label>Nombre</label> 
-								<select name="nombre" class="form-control"> 
+								<select name="autor" class="form-control"> 
 									<option th:value="Todos" th:text="Todos"></option>
-									<option th:if="editorial.id != null" th:each="editorial : ${editoriales}"
+									<option th:if="libro.id != null" th:each="editorial : ${editoriales}"
 									th:value="${editorial.nombre}" th:text="${editorial.nombre}"></option>
 								</select> 
 							</div>

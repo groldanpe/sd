@@ -31,7 +31,7 @@ public class LibrosController {
 	   public void init() {
 		repositorioEditorial.save(new Editorial("ANAYA", 677456789, "prueba@prueba.com", "Gran via 54", "097yh"));	
 		repositorioLibros.save(new Libros("Pepe", "Hola..", repositorioEditorial.findByCif("097yh"), 1996,123, "987-009-ES", 123, "Historia"));
-		repositorioLibros.save(new Libros("Juan", "Hola.. v2", repositorioEditorial.findByCif("097yh"), 1996,12223, "22987-009-ES", 1223, "Geografia"));		
+		repositorioLibros.save(new Libros("Juan", "Hola.. v2", repositorioEditorial.findByCif("097yh"), 1996,12223, "22987-009-ES", 1223, "Novela"));		
 	   
 	}
 	
@@ -72,23 +72,24 @@ public class LibrosController {
 	}
 	
 	
-	@RequestMapping("/filtroAtoB")
-	public String filtroAtoB(@RequestParam String autor, String categoria,Model model) {
+	@RequestMapping("/busquedaEditorial")
+	public String busquedaEditorial(@RequestParam String nombre, Model model) {
 		
-		List<Libros> libros =repositorioLibros.findAll();
+		List<Editorial> ed = repositorioEditorial.findAll();
+		ed = ed.stream().distinct().collect(Collectors.toList());
 		
-		if (libros.size() > 0) {
-			  Collections.sort(libros, new Comparator<Libros>() {
-			      public int compare(final Libros object1, final Libros object2) {
-			          return (int) (object2.getPvp() - object1.getPvp());
-			      }
-			  });
+		model.addAttribute("listado",repositorioEditorial.findAll());
+		
+		if(nombre.equals("Todos")) {
+			model.addAttribute("editoriales", repositorioEditorial.findAll());
+		}else {
+			model.addAttribute("editoriales", repositorioEditorial.findByNombre(nombre));
 		}
 		
-		model.addAttribute("libros", libros);
 		
-		return "filtroAtoB";
+		return "busquedaEditorial";
 	}
+
 	
 	@RequestMapping("/nuevoLibro")
 	public String insertar(Model model) {

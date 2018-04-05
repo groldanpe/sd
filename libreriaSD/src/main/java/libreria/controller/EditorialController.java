@@ -19,13 +19,13 @@ public class EditorialController {
 	@Autowired
 	private EditorialRepository repositorioEditoriales;
 	
-	@RequestMapping("/insertarEditorial")
+	@RequestMapping("/insertadaEditorial")
 	public String insertar(Editorial editorial,
 						   Model model) {
         
 		repositorioEditoriales.save(editorial);
 
-		return "insertarEditorial";
+		return "insertadaEditorial";
 	}
 	
 	@RequestMapping("/editoriales")
@@ -51,12 +51,26 @@ public class EditorialController {
 
 		return "mostrarEditorial";
 	}
+	@RequestMapping("/EditorialModificada")
+	public String EditorialModificada(@RequestParam String cif, String nombre, long telefono, String email, String direccion, Model model) {
+		
+		Editorial editorial = repositorioEditoriales.findByCif(cif);
+		editorial.setDireccion(direccion);
+		editorial.setEmail(email);
+		editorial.setNombre(nombre);
+		editorial.setTelefono(telefono);
+		
+		repositorioEditoriales.save(editorial);
+		
+		return("EditorialModificada");
+	}
+	
 	@RequestMapping("/modificarEditorial")
 	public String modificarEditorial(@RequestParam String cif, Model model) {
 		
-		Editorial editorial = repositorioEditoriales.findByCif(cif);
+		Editorial ed = repositorioEditoriales.findByCif(cif);
 		
-		model.addAttribute("editoriales", editorial);
+		model.addAttribute("editoriales", ed);
 		
 		return("modificarEditorial");
 	}

@@ -14,7 +14,6 @@
                 <ul>
                     <li><a href="/">Inicio</a></li>
                     <li><a href="/editoriales">Editoriales</a></li>
-                    <li><a href="/">Ayuda</a></li>
                 </ul>
             </div>
         </div>
@@ -54,7 +53,7 @@
 			    <div class="col-sm-3">
 				    <select name="cif" class="form-control">
 						<option th:if="libro.id != null" th:each="libro : ${libros}"
-							th:value="${libro.editorial.cif}" th:text="${libro.editorial.cif}"></option>
+							th:value="${libro.editorial.cif}" th:text="${libro.editorial.nombre}"></option>
 					</select>
 			    </div>
 			</div>

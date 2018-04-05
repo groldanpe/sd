@@ -14,7 +14,6 @@
                             <ul>
                                 <li><a href="/">Inicio</a></li>
                                 <li><a href="/editoriales">Editoriales</a></li>
-                                <li><a href="/">Ayuda</a></li>
                             </ul>
                     </div>
                 </div>
@@ -23,6 +22,22 @@
 		<h2 class="header">Editoriales</h2>
 		<table class="table-filter">
 			<tr>
+			<td class="filter-cell">
+					<form action="/busquedaEditorial" method="post">
+					<h4>Filtrar por:</h4>
+						<div class="row">
+			            	<div class="form-group col-xs-3">
+								<label>Nombre</label> 
+								<select name="nombre" class="form-control"> 
+									<option th:value="Todos" th:text="Todos"></option>
+									<option th:if="editorial.id != null" th:each="editorial : ${editoriales}"
+									th:value="${editorial.nombre}" th:text="${editorial.nombre}"></option>
+								</select> 
+							</div>
+							<input type='submit' value='Aplicar' class="btn btn-primary aplicar-button" />
+						</div>
+					</form>
+				</td>
 				<td class="new-editorial new-cell">
 					<a href="/nuevaEditorial" class="btn btn-success new-book">Añadir nueva editorial</a>	
 				</td>
