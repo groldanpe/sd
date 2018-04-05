@@ -4,6 +4,7 @@
 <link rel="stylesheet"
 	    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
 	<div class="container" id="contenedor">
@@ -62,12 +63,12 @@
 				</td>
 			</tr>
 		</table>
-		<table class="table datatable">
+		<table class="table datatable" id="tablaOrdenar">
 			<tr>
-				<th th:text="Titulo" ></th> 
-				<th th:text="Autor"></th>
-				<th th:text="Páginas"></th>
-				<th th:text="Categoria"></th>   
+				<th onclick="sortTable(0)" th:text="Titulo" ></th> 
+				<th onclick="sortTable(1)" th:text="Autor"></th>
+				<th onclick="sortTable(2)" th:text="Páginas"></th>
+				<th onclick="sortTable(3)" th:text="Categoria"></th>   
 				<th th:text="Modificar"></th>
 			</tr>
 			<tr th:each="libro : ${libros}" >

@@ -21,15 +21,6 @@
         </header>
 		<h2 class="header">Modificar libro</h2>
 		<form action="/libroModificado" method="post">
-			<div class="form-group row">
-				<label class="col-sm-2">Isbn</label>
-				<div class="col-sm-3">
-				    <select name="isbn" class="form-control"> 
-						<option th:if="libro.id != null" th:each="libro : ${libros}"
-							th:value="${libro.isbn}" th:text="${libro.isbn}"></option>
-					</select>
-				</div>
-			</div>
  			<div class="form-group row">
 			    <label class="col-sm-2">Autor</label>
 			    <div class="col-sm-10">
